@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Rajdhani:wght@400;500;600&family=Share+Tech+Mono&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050507;
+  color: #e8ecf6;
+}
+
+.homepage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+
+  background-color: #050507;
+  background-image:
+    linear-gradient(
+      rgba(0, 190, 190, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 190, 190, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+/* Small cyan label */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #0cc7c8;
+
+  margin-bottom: 32px;
+}
+
+.eyebrow-line {
+  width: 28px;
+  height: 1px;
+  background: #0cc7c8;
+}
+
+/* Main heading */
+
+.hero-content h1 {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: clamp(48px, 4.2vw, 72px);
+  font-weight: 700;
+  line-height: 0.99;
+  letter-spacing: -2px;
+}
+
+.hero-content h1 span:first-child {
+  color: #e8ecf6;
+}
+
+.heading-gray {
+  color: #8190a7;
+}
+
+/* Description */
+
+.hero-content p {
+  margin-top: 38px;
+  margin-bottom: 58px;
+  max-width: 610px;
+
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.8;
+
+  color: #9296a2;
+}
+
+/* Dashboard button */
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 340px;
+  height: 53px;
+
+  background: #0cc7c8;
+
+  clip-path: polygon(
+    3.5% 0,
+    100% 0,
+    96.5% 100%,
+    0 100%
+  );
+
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+
+  text-decoration: none;
+  color: #020607;
+
+  transition: 0.2s;
+}
+
+.hero-button:hover {
+  background: #19e5e5;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .homepage {
+    padding: 24px;
+  }
+
+  .hero-content h1 {
+    font-size: 46px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .hero-button {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+/* TWO-COLUMN LAYOUT */
+
+.hero-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 100px;
+}
+
+/* MINING PANEL */
+
+.mining-panel {
+  padding: 45px;
+  background: #0b0e12;
+  border: 1px solid #18252b;
+  position: relative;
+}
+
+/* Cyan corner accents */
+
+.mining-panel::before,
+.mining-panel::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.mining-panel::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #0cc7c8;
+  border-left: 2px solid #0cc7c8;
+}
+
+.mining-panel::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #0cc7c8;
+  border-right: 2px solid #0cc7c8;
+}
+
+/* PANEL HEADING */
+
+.mining-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #0cc7c8;
+
+  margin-bottom: 25px;
+}
+
+.mining-panel h2 {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #e8ecf6;
+
+  margin: 0 0 20px;
+}
+
+.mining-description {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #9296a2;
+
+  margin-bottom: 35px;
+}
+
+/* MINING STATUS */
+
+.mining-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 18px;
+  margin-bottom: 30px;
+
+  background: #050709;
+  border: 1px solid #1b292e;
+
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #9296a2;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.status-dot.inactive {
+  background: #6d7480;
+}
+
+.status-dot.active {
+  background: #00d68f;
+  box-shadow: 0 0 10px rgba(0, 214, 143, 0.5);
+}
+
+/* BUTTONS */
+
+.mining-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.mining-buttons button {
+  flex: 1;
+  min-height: 52px;
+  padding: 12px;
+
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+  transition: 0.2s;
+
+  clip-path: polygon(
+    5% 0,
+    100% 0,
+    95% 100%,
+    0 100%
+  );
+}
+
+.start-button {
+  background: #0cc7c8;
+  color: #020607;
+  border: none;
+}
+
+.start-button:hover:not(:disabled) {
+  background: #19e5e5;
+}
+
+.stop-button {
+  background: transparent;
+  color: #0cc7c8;
+  border: 1px solid #0cc7c8;
+}
+
+.stop-button:hover:not(:disabled) {
+  background: #102528;
+}
+
+.mining-buttons button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .mining-panel {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mining-panel {
+    padding: 25px;
+  }
+
+  .mining-buttons {
+    flex-direction: column;
+  }
+
+  .mining-panel h2 {
+    font-size: 30px;
+  }
+}
+/* HASHRATE DISPLAY */
+
+.mining-hashrate {
+  background: #050709;
+  border: 1px solid #1b292e;
+  border-left: 2px solid #0cc7c8;
+
+  padding: 20px 24px;
+  margin-bottom: 30px;
+}
+
+.hashrate-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #9296a2;
+
+  margin-bottom: 12px;
+}
+
+.hashrate-value {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #0cc7c8;
+
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.hashrate-unit {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  color: #8190a7;
+}
