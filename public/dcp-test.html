@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="https://scheduler.distributed.computer/dcp-client/dcp-client.js"></script>
+  <script>
+	let worker = null;
+
+	async function toggleWorker() {
+	  const consoleEl = document.querySelector('#workerConsole');
+	  const log = (msg) => {
+		consoleEl.value += msg + '\n\n';
+		consoleEl.scrollTop = consoleEl.scrollHeight;
+	  };
+
+	  if (!worker) {
+        if (!dcp.identity.check()) {
+          const id = await new dcp.wallet.Keystore(  // web-worker-demo-id
+             "0x5356d59ec41a45672e4be75a8761e1721f7b48941226f2775722907238f805be",""
+          );
+          await dcp.identity.set(id);
+	    };
+
+		worker = new dcp.worker.DistributiveWorker({
+		  paymentAddress: new dcp.wallet.Address(
+			'0x08d9468dddc9238b08cd72e6b6fdbadf03ae466d'
+		  ),
+		});
+
+		worker.on('fetch', ev  => log(`[fetch] ${JSON.stringify(ev, null, 2)}`));
+		worker.on('error', err => log(`[error] ${JSON.stringify(err, null, 2)}`));
+		worker.on('payment', ev => log(`[payment] ${ev} ⊇`));
+
+		await worker.start();
+
+		log('DCP Worker started');
+		document.querySelector('#work-btn').textContent = 'STOP';
+	  } else {
+
+		await worker.stop();
+
+		log('DCP Worker stopped');
+		worker = null;
+		document.querySelector('#work-btn').textContent = 'START';
+	  }
+	}
+		  </script>
+		</head>
+		<body>
+		  <button id="work-btn" onclick="toggleWorker()">Run Worker</button>
+		  <br><br>
+		  <textarea id="workerConsole" cols="100" rows="16"></textarea>
+		</body>
+		</html>
