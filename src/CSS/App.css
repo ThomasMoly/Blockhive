@@ -290,6 +290,7 @@ body {
   background: #0cc7c8;
   color: #020607;
   border: none;
+  
 }
 
 .start-button:hover:not(:disabled) {
@@ -309,6 +310,20 @@ body {
 .mining-buttons button:disabled {
   opacity: 0.35;
   cursor: not-allowed;
+}
+
+.compute-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.compute-button-group {
+  width: 100%;
+}
+
+.compute-button-group .mining-buttons {
+  margin: 0;
 }
 
 /* RESPONSIVE */
@@ -373,4 +388,96 @@ body {
   font-size: 14px;
   font-weight: 400;
   color: #8190a7;
+}
+
+
+/* ==================================
+   DYNAMIC COMPUTE PANEL
+================================== */
+
+.mining-panel {
+  --accent-color: #94a3b8;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Mining mode - Green */
+.mining-panel.miner-mode {
+  --accent-color: #22c55e;
+}
+
+/* DCP mode - Blue */
+.mining-panel.dcp-mode {
+  --accent-color: #38bdf8;
+}
+
+/* Idle mode - Gray */
+.mining-panel.idle-mode {
+  --accent-color: #94a3b8;
+}
+
+/* Status dot */
+.mining-panel .status-dot.active {
+  background-color: var(--accent-color);
+  box-shadow: 0 0 12px var(--accent-color);
+}
+
+/* Information container */
+.compute-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  margin: 24px 0;
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 10px;
+
+  transition: border-color 0.3s ease;
+}
+
+/* Individual statistics */
+.compute-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Statistic labels */
+.compute-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: #9ca3af;
+}
+
+/* Statistic values */
+.compute-value {
+  font-size: 17px;
+  font-weight: 600;
+  color: #f8fafc;
+  overflow-wrap: anywhere;
+}
+
+/* Mining hashrate */
+.miner-mode .hashrate-value {
+  color: #22c55e;
+}
+
+/* DCP values */
+.dcp-mode .compute-value {
+  color: #38bdf8;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .compute-info {
+    padding: 16px;
+  }
+
+  .compute-value {
+    font-size: 15px;
+  }
 }
