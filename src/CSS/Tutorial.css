@@ -1,0 +1,208 @@
+.tutorial-page {
+  min-height: 100vh;
+  background: #0a0a0d;
+  color: #fff;
+  padding: 2rem 1.5rem 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.tutorial-page-inner {
+  width: 100%;
+  max-width: 1150px;
+}
+
+.tutorial-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tutorial-page-header h1 {
+  font-size: 1.1rem;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.tutorial-back {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.tutorial-back:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.tutorial-page-counter {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+
+/* ===================================
+   SLIDE LAYOUT (image | text)
+   =================================== */
+.tutorial-slide {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.tutorial-slide-image {
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 360px;
+  max-height: 70vh;
+  overflow: hidden;
+}
+
+.tutorial-slide-image img {
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  display: block;
+}
+
+.tutorial-slide-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.tutorial-step-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: #9bb4ff;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.tutorial-slide-text h2 {
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.tutorial-slide-text p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 1.75rem;
+}
+
+/* ===================================
+   NAV BUTTONS
+   =================================== */
+.tutorial-slide-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tutorial-nav-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.tutorial-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.tutorial-nav-btn.primary {
+  background: #4a6bff;
+  border-color: #4a6bff;
+}
+
+.tutorial-nav-btn.primary:hover {
+  background: #5f7dff;
+  border-color: #5f7dff;
+}
+
+/* ===================================
+   PROGRESS BAR (segments)
+   =================================== */
+.tutorial-progress {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+}
+
+.tutorial-progress-seg {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tutorial-progress-seg.done {
+  background: rgba(155, 180, 255, 0.55);
+}
+
+.tutorial-progress-seg.active {
+  background: #9bb4ff;
+}
+
+.tutorial-progress-seg:hover {
+  background: rgba(155, 180, 255, 0.8);
+}
+
+/* ===================================
+   RESPONSIVE — stack on mobile
+   =================================== */
+@media (max-width: 800px) {
+  .tutorial-slide {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tutorial-slide-image {
+    min-height: 240px;
+    max-height: 50vh;
+  }
+
+  .tutorial-slide-image img {
+    max-height: 45vh;
+  }
+
+  .tutorial-page-header h1 {
+    font-size: 0.9rem;
+  }
+
+  .tutorial-slide-text h2 {
+    font-size: 1.3rem;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import "./CSS/App.css";
+import Tutorial from "./Tutorial";
 import * as cpuWebMiner from "@marco_ciaramella/cpu-web-miner";
 
 const stratum = {
@@ -111,6 +112,9 @@ const timeStamp = () =>
   });
 
 export default function App() {
+  // "home" | "tutorial"
+  const [view, setView] = useState("home");
+
   // "idle" | "starting" | "running" | "stopping"
   const [mode, setMode] = useState("idle");
 
@@ -639,6 +643,11 @@ export default function App() {
     ? "dcp-mode"
     : "miner-mode";
 
+  // Render the tutorial page
+  if (view === "tutorial") {
+    return <Tutorial onBack={() => setView("home")} />;
+  }
+
   return (
     <main className="homepage">
       <div className="hero-container">
@@ -663,6 +672,14 @@ export default function App() {
           <a href="/dashboard" className="hero-button">
             ENTER THE XYR DASHBOARD
           </a>
+
+          <button
+            className="hero-button secondary"
+            onClick={() => setView("tutorial")}
+          >
+            SET UP YOUR WALLET
+          </button>
+
         </section>
 
         {/* RIGHT SIDE */}

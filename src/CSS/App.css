@@ -126,6 +126,18 @@ body {
   background: #19e5e5;
 }
 
+.hero-button.secondary {
+  background: transparent;
+  border: 1px solid #0cc7c8;
+  color: #0cc7c8;
+  margin-top: 1.5rem;
+  clip-path: none; 
+}
+
+.hero-button.secondary:hover {
+  background: #102528;
+}
+
 /* Mobile */
 
 @media (max-width: 600px) {
